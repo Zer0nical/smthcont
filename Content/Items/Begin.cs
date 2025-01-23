@@ -13,16 +13,15 @@ namespace smthcont.Content.Items
 		// The Display Name and Tooltip of this item can be edited in the 'Localization/en-US_Mods.smthcont.hjson' file.
 		public override void SetDefaults()
 		{
-			Item.damage = 92;
+			Item.damage = 36;
 			Item.DamageType = DamageClass.Melee;
 			Item.width = 60;
 			Item.height = 60;
-			Item.healLife = 2;
-			Item.useTime = 3;
-			Item.useAnimation = 3;
+			Item.useTime = 30;
+			Item.useAnimation = 30;
 			Item.useStyle = ItemUseStyleID.Swing;
-			Item.knockBack = 9;
-			Item.value = Item.buyPrice(gold: 15, silver: 20);
+			Item.knockBack = 4;
+			Item.value = Item.buyPrice(gold: 4, silver: 20);
 			Item.rare = ItemRarityID.Master;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
@@ -66,7 +65,7 @@ namespace smthcont.Content.Items
 			for (int i = 0; i < 5; i++)
 			{
 				// Расчёт угла для каждого снаряда
-				float angle = baseAngle + MathHelper.ToRadians(72 * i); // Смещение на 72° для каждого снаряда
+				float angle = baseAngle + MathHelper.ToRadians(72 * i); // Смещение на 60° для каждого снаряда
 				Vector2 spawnDirection = new Vector2((float)Math.Cos(angle), (float)Math.Sin(angle)); // Вектор направления
 				Vector2 spawnPosition = player.Center + spawnDirection * radius; // Позиция снаряда
 
@@ -74,7 +73,7 @@ namespace smthcont.Content.Items
 				Projectile.NewProjectile(
 					source, 
 					spawnPosition, 
-					spawnDirection * 15f, // Скорость снаряда
+					spawnDirection * 12f, // Скорость снаряда
 					type, 
 					damage, 
 					knockBack, 
@@ -90,7 +89,6 @@ namespace smthcont.Content.Items
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.LifeCrystal, 5); //5 LifeCrystal
-			//other ingr
 			recipe.AddIngredient(ItemID.HeartLantern, 5);//5 HeartLantern
 			recipe.AddIngredient(ItemID.HeartStatue, 1);//1 HeartStatue
 			recipe.AddIngredient(ItemID.HeartreachPotion, 5);//5 HeartreachPotion

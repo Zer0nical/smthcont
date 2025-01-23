@@ -20,10 +20,10 @@ namespace smthcont.Content.Projectiles
             Projectile.friendly = true; // Снаряд дружелюбный
             Projectile.hostile = false; // Не наносит урон игроку
             Projectile.DamageType = DamageClass.Melee; // Тип урона
-            Projectile.penetrate = 2; // Количество проникновений (3 попадания)
-            Projectile.timeLeft = 300; // Время жизни снаряда (в кадрах)
+            Projectile.penetrate = 2; // Количество проникновений (2 попадания)
+            Projectile.timeLeft = 140; // Время жизни снаряда (в кадрах)
             Projectile.damage = 10; // Урон снаряда
-            Projectile.light = 0.8f; // Освещение вокруг снаряда
+            Projectile.light = 0.75f; // Освещение вокруг снаряда
             Projectile.ignoreWater = true; // Не замедляется в воде
             Projectile.tileCollide = true; // Снаряд сталкивается с блоками
         }
@@ -31,13 +31,13 @@ namespace smthcont.Content.Projectiles
         public override void AI()
         {
             // Самонаводка на ближайшего врага
-            NPC target = FindClosestNPC(500f); // Радиус поиска - 500 пикселей
+            NPC target = FindClosestNPC(485f); // Радиус поиска - 485 пикселей
             if (target != null)
             {
                 Vector2 direction = target.Center - Projectile.Center; // Направление к цели
                 direction.Normalize(); // Нормализация вектора (длина 1)
-                direction *= 12f; // Скорость снаряда (можно настроить)
-                Projectile.velocity = Vector2.Lerp(Projectile.velocity, direction, 0.1f); // Плавное изменение направления
+                direction *= 11f; // Скорость снаряда (можно настроить)
+                Projectile.velocity = Vector2.Lerp(Projectile.velocity, direction, 0.25f); // Плавное изменение направления
             }
 
             // Эффекты (пыль)

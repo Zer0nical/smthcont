@@ -2,13 +2,14 @@
 
 Items: {
 	Begin: {
-		DisplayName: Corrupted Life Ascent
-		Tooltip: The best weapon for killing wickedness and negroes!
+		DisplayName: Cursed Ruby Ascent
+		Tooltip: Weapons forged using cursed and holy energy by the life force of worthy beings
 	}
-	Begin: {
-		DisplayName: Power of the phoenix
+
+	DragonBreath: {
+		DisplayName: Phoenix power
 		Tooltip: Everything will be burned to the ground!
 	}
 }
 
-Projectiles.BeginProjectile.DisplayName: Begin Projectile
+Projectiles.BeginProjectile.DisplayName: Ruby Projectile
