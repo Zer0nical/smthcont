@@ -5,6 +5,10 @@ Items: {
 		DisplayName: Corrupted Life Ascent
 		Tooltip: The best weapon for killing wickedness and negroes!
 	}
+	Begin: {
+		DisplayName: Power of the phoenix
+		Tooltip: Everything will be burned to the ground!
+	}
 }
 
 Projectiles.BeginProjectile.DisplayName: Begin Projectile

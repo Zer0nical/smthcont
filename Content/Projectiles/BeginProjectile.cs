@@ -20,9 +20,9 @@ namespace smthcont.Content.Projectiles
             Projectile.friendly = true; // Снаряд дружелюбный
             Projectile.hostile = false; // Не наносит урон игроку
             Projectile.DamageType = DamageClass.Melee; // Тип урона
-            Projectile.penetrate = 1; // Количество проникновений (3 попадания)
+            Projectile.penetrate = 2; // Количество проникновений (3 попадания)
             Projectile.timeLeft = 300; // Время жизни снаряда (в кадрах)
-            Projectile.damage = 40; // Урон снаряда
+            Projectile.damage = 10; // Урон снаряда
             Projectile.light = 0.8f; // Освещение вокруг снаряда
             Projectile.ignoreWater = true; // Не замедляется в воде
             Projectile.tileCollide = true; // Снаряд сталкивается с блоками

@@ -18,11 +18,11 @@ namespace smthcont.Content.Items
 			Item.width = 60;
 			Item.height = 60;
 			Item.healLife = 2;
-			Item.useTime = 14;
-			Item.useAnimation = 14;
+			Item.useTime = 3;
+			Item.useAnimation = 3;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 9;
-			Item.value = Item.buyPrice(gold: 15);
+			Item.value = Item.buyPrice(gold: 15, silver: 20);
 			Item.rare = ItemRarityID.Master;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
