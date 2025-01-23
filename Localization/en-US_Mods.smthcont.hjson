@@ -6,3 +6,5 @@ Items: {
 		Tooltip: The best weapon for killing wickedness and negroes!
 	}
 }
+
+Projectiles.BeginProjectile.DisplayName: Begin Projectile
