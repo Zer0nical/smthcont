@@ -2,12 +2,7 @@
 
 Items: {
 	Begin: {
-		DisplayName: "Begin"
-		Tooltip:
-			'''
-			Template of an item
-			Replacing this tooltip is duty 
-			It's snowing on Mt.Fuji
-			'''
+		DisplayName: Corrupted Life Ascent
+		Tooltip: The best weapon for killing wickedness and negroes!
 	}
 }
