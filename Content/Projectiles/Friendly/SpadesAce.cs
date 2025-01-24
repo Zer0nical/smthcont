@@ -23,7 +23,7 @@ namespace smthcont.Content.Projectiles.Friendly
             Projectile.rotation += 0.1f; // Вращение вокруг оси
         }
 
-        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             if (Main.rand.NextFloat() <= 0.9f) // 90% шанс
                 target.AddBuff(BuffID.Poisoned, 900); // Отравление на 15 секунд

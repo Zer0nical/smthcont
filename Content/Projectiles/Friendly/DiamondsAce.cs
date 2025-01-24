@@ -23,7 +23,7 @@ namespace smthcont.Content.Projectiles.Friendly
             Projectile.rotation += 0.1f; // Вращение вокруг оси
         }
 
-        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             Player player = Main.player[Projectile.owner];
 
