@@ -10,6 +10,14 @@ Items: {
 		DisplayName: Phoenix power
 		Tooltip: Everything will be burned to the ground!
 	}
+
+	PerfectRubyBlade: {
+		DisplayName: Perfect Ruby Blade
+		Tooltip: ""
+	}
 }
 
-Projectiles.BeginProjectile.DisplayName: Ruby Projectile
+Projectiles: {
+	BeginProjectile.DisplayName: Ruby Projectile
+	PerfectRubyBladeProjectile.DisplayName: Perfect Ruby Blade Projectile
+}

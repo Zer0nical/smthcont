@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework;
 using smthcont.Content.Projectiles;
 using System;
 // https://github.com/tModLoader/tModLoader/tree/stable/ExampleMod
-namespace smthcont.Content.Items
+namespace smthcont.Content.Items.Weapons.Melee
 { 
 	public class Begin : ModItem
 	{

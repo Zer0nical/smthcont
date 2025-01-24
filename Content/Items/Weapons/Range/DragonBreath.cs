@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework;
 using smthcont.Content.Projectiles;
 using System;
 
-namespace smthcont.Content.Items 
+namespace smthcont.Content.Items.Weapons.Range
 {
     public class DragonBreath : ModItem 
 	{
