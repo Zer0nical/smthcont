@@ -9,7 +9,7 @@ namespace smthcont.Content.Items.Weapons.Magic
 {
     public class BlackHoleBook : ModItem
     {
-        private const int Cooldown = 600; // 10 секунд (600 тиков)
+        private const int Cooldown = 60; // 10 секунд (600 тиков)
         private int lastUseTime; // Отслеживание времени последнего использования
 
         public override void SetDefaults()
@@ -41,6 +41,7 @@ namespace smthcont.Content.Items.Weapons.Magic
 
             return false; // Не позволяет использовать до окончания кулдауна
         }
+    
 
         public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockBack)
         {
@@ -54,15 +55,7 @@ namespace smthcont.Content.Items.Weapons.Magic
 
                 // Создать черную дыру в месте курсора
                 Vector2 targetPosition = Main.MouseWorld;
-                Projectile.NewProjectile(
-                    source,
-                    targetPosition,
-                    Vector2.Zero, // Черная дыра неподвижна
-                    ModContent.ProjectileType<BlackHole>(),
-                    damage, // Урон черной дыры
-                    knockBack,
-                    player.whoAmI
-                );
+                Projectile.NewProjectile(source, Main.MouseWorld, Vector2.Zero, ModContent.ProjectileType<BlackHole>(), damage, player.whoAmI);
 
                 // Обновляем время последнего использования
                 lastUseTime = (int)Main.GameUpdateCount;
