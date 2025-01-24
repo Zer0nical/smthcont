@@ -17,7 +17,8 @@ Items: {
 	}
 
 	PlayingCards: {
-		Tooltip: ""
+		Tooltip: "Im, so lucky-lucky, im, so lucky-lucky IM,
+		so love me love me, Im, so love me love me!"
 		DisplayName: Playing Cards
 	}
 }
