@@ -12,7 +12,7 @@ namespace smthcont.Content.Projectiles.Friendly
             Projectile.width = 8;
             Projectile.height = 12;
             Projectile.friendly = true;
-            Projectile.damage = 140;
+            Projectile.damage = 150;
             //Projectile.magic = true;
             Projectile.penetrate = 3; // Пронзает 3 врагов
             Projectile.tileCollide = true; // Исчезает при столкновении с блоками
@@ -36,12 +36,18 @@ namespace smthcont.Content.Projectiles.Friendly
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             Player player = Main.player[Projectile.owner];
-            if (Main.rand.NextFloat() <= 0.9f) // 90% шанс
+            if (Main.rand.NextFloat() <= 1.0f) // 100% шанс
             {
-                player.statLife += 5; // Лечение
-                player.HealEffect(5);
-                player.AddBuff(BuffID.Regeneration, 600); // 10 секунд регенерации здоровья
-                player.AddBuff(BuffID.ManaRegeneration, 600); // 10 секунд регенерации маны
+                player.statLife += 20; // Лечение
+                player.HealEffect(20);
+                player.AddBuff(BuffID.Regeneration, 1200); // 20 секунд 
+                player.AddBuff(BuffID.ManaRegeneration, 1200); 
+                player.AddBuff(BuffID.Honey, 1200);
+                player.AddBuff(BuffID.RapidHealing, 1200); 
+                player.AddBuff(BuffID.Campfire, 1200); 
+                player.AddBuff(BuffID.HeartLamp, 1200); 
+                player.AddBuff(BuffID.Lifeforce, 1200); 
+                player.AddBuff(BuffID.NebulaUpLife3, 1200); 
             }
         }
     }

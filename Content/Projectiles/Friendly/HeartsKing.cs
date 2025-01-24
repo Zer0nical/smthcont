@@ -36,12 +36,18 @@ namespace smthcont.Content.Projectiles.Friendly
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             Player player = Main.player[Projectile.owner];
-            if (Main.rand.NextFloat() <= 0.9f) // 90% шанс
+            if (Main.rand.NextFloat() <= 0.92f) // 92% шанс
             {
-                player.statLife += 5; // Лечение
-                player.HealEffect(5);
-                player.AddBuff(BuffID.Regeneration, 600); // 10 секунд регенерации здоровья
-                player.AddBuff(BuffID.ManaRegeneration, 600); // 10 секунд регенерации маны
+                player.statLife += 18; // Лечение
+                player.HealEffect(18);
+                player.AddBuff(BuffID.Regeneration, 900); // 15 секунд 
+                player.AddBuff(BuffID.ManaRegeneration, 900); 
+                player.AddBuff(BuffID.Honey, 900);
+                player.AddBuff(BuffID.RapidHealing, 900); 
+                player.AddBuff(BuffID.Campfire, 900); 
+                player.AddBuff(BuffID.HeartLamp, 900); 
+                player.AddBuff(BuffID.Lifeforce, 900); 
+                player.AddBuff(BuffID.NebulaUpLife2, 900); 
             }
         }
     }

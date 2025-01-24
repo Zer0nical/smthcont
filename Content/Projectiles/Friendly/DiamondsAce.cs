@@ -13,7 +13,7 @@ namespace smthcont.Content.Projectiles.Friendly
             Projectile.height = 12;
             Projectile.friendly = true;
             //Projectile.magic = true;
-            Projectile.damage = 140;
+            Projectile.damage = 150;
             Projectile.penetrate = 3; // Пронзает 3 врагов
             Projectile.tileCollide = true; // Исчезает при столкновении с блоками
             Projectile.light = 0.5f; // Освещает
@@ -37,13 +37,16 @@ namespace smthcont.Content.Projectiles.Friendly
         {
             Player player = Main.player[Projectile.owner];
 
-            if (Main.rand.NextFloat() <= 0.9f) // 90% шанс
-                target.AddBuff(BuffID.Bleeding, 900); // Кровотечение на 15 секунд
+            if (Main.rand.NextFloat() <= 1.0f) // 100% шанс
+                target.AddBuff(BuffID.Bleeding, 1800); // Кровотечение на 30 секунд
 
             // Случайный бафф для игрока
-            int[] buffs = { BuffID.Ironskin, BuffID.Endurance, BuffID.Rage };
+            int[] buffs = { BuffID.Regeneration, BuffID.Swiftness, BuffID.Ironskin, BuffID.ManaRegeneration, BuffID.MagicPower, BuffID.Thorns,
+            BuffID.Archery,BuffID.WellFed,BuffID.PaladinsShield,BuffID.Honey,BuffID.RapidHealing,BuffID.Panic,BuffID.HeartLamp,BuffID.BeetleEndurance3,
+            BuffID.BeetleMight3,BuffID.Lifeforce,BuffID.Endurance,BuffID.Rage,BuffID.Inferno,BuffID.Wrath,BuffID.Sunflower,BuffID.SoulDrain,BuffID.SolarShield3,
+            BuffID.NebulaUpLife3,BuffID.NebulaUpMana3,BuffID.NebulaUpDmg3,BuffID.ParryDamageBuff,BuffID.HeartyMeal};
             int randomBuff = Main.rand.Next(buffs.Length);
-            player.AddBuff(buffs[randomBuff], 1200); // Бафф на 20 секунд
+            player.AddBuff(buffs[randomBuff], 14400); // Бафф на 240 секунд
 
             // Телепортируем врага случайным образом
             Vector2 randomTeleportOffset = new Vector2(

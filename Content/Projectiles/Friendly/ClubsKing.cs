@@ -36,7 +36,7 @@ namespace smthcont.Content.Projectiles.Friendly
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             Player player = Main.player[Projectile.owner];
-
+            player.AddBuff(BuffID.ShadowDodge, 30); // 0.5 секунд додж
             // Меняем местами игрока и врага
             Vector2 tempPosition = player.Center;
             player.Center = target.Center;
@@ -45,8 +45,8 @@ namespace smthcont.Content.Projectiles.Friendly
             // Звук телепортации
             //SoundEngine.PlaySound(SoundID.Item8, player.position);
 
-            // Спавним 12 гранат вокруг врага с рандомным отклонением
-            for (int i = 0; i < 12; i++)
+            // Спавним 10 кос вокруг врага с рандомным отклонением
+            for (int i = 0; i < 10; i++)
             {
                 Vector2 randomOffset = new Vector2(
                     Main.rand.Next(-8 * 16, 8 * 16), // Отклонение по X (8 блоков)
@@ -57,8 +57,8 @@ namespace smthcont.Content.Projectiles.Friendly
                     Projectile.GetSource_FromThis(),
                     grenadePosition,
                     Vector2.Zero,
-                    ProjectileID.Grenade,
-                    46, // Урон гранат
+                    ProjectileID.DemonScythe,
+                    80, // Урон кос
                     1f,
                     player.whoAmI
                 );

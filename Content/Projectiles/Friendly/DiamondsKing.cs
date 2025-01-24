@@ -41,9 +41,12 @@ namespace smthcont.Content.Projectiles.Friendly
                 target.AddBuff(BuffID.Bleeding, 900); // Кровотечение на 15 секунд
 
             // Случайный бафф для игрока
-            int[] buffs = { BuffID.Ironskin, BuffID.Endurance, BuffID.Rage };
+            int[] buffs = { BuffID.Regeneration, BuffID.Swiftness, BuffID.Ironskin, BuffID.ManaRegeneration, BuffID.MagicPower, BuffID.Thorns,
+            BuffID.Archery,BuffID.WellFed,BuffID.PaladinsShield,BuffID.Honey,BuffID.RapidHealing,BuffID.Panic,BuffID.HeartLamp,BuffID.BeetleEndurance2,
+            BuffID.BeetleMight2,BuffID.Lifeforce,BuffID.Endurance,BuffID.Rage,BuffID.Inferno,BuffID.Wrath,BuffID.Sunflower,BuffID.SolarShield2,
+            BuffID.NebulaUpLife2,BuffID.NebulaUpMana2,BuffID.NebulaUpDmg2,BuffID.ParryDamageBuff};
             int randomBuff = Main.rand.Next(buffs.Length);
-            player.AddBuff(buffs[randomBuff], 1200); // Бафф на 20 секунд
+            player.AddBuff(buffs[randomBuff], 12000); // Бафф на 200 секунд
 
             // Телепортируем врага случайным образом
             Vector2 randomTeleportOffset = new Vector2(

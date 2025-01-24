@@ -13,7 +13,7 @@ namespace smthcont.Content.Projectiles.Friendly
             Projectile.height = 12;
             Projectile.friendly = true;
             //Projectile.magic = true;
-            Projectile.damage = 140;
+            Projectile.damage = 150;
             Projectile.penetrate = 3; // Пронзает 3 врагов
             Projectile.tileCollide = true; // Исчезает при столкновении с блоками
             Projectile.light = 0.5f; // Освещает
@@ -41,24 +41,42 @@ namespace smthcont.Content.Projectiles.Friendly
             Vector2 tempPosition = player.Center;
             player.Center = target.Center;
             target.Center = tempPosition;
-
+            player.AddBuff(BuffID.ShadowDodge, 30); // 0.5 секунд додж
             // Звук телепортации
             //SoundEngine.PlaySound(SoundID.Item8, player.position);
 
-            // Спавним 14 гранат вокруг врага с рандомным отклонением
-            for (int i = 0; i < 14; i++)
+            // Спавним 12 фаерболов вокруг врага с рандомным отклонением
+            for (int i = 0; i < 12; i++)
             {
                 Vector2 randomOffset = new Vector2(
                     Main.rand.Next(-8 * 16, 8 * 16), // Отклонение по X (8 блоков)
                     Main.rand.Next(-3 * 16, 3 * 16) // Отклонение по Y (3 блока)
                 );
-                Vector2 grenadePosition = target.Center + new Vector2(0, -7 * 16) + randomOffset; // Высота 7 блоков над врагом
+                Vector2 grenadePosition = target.Center + new Vector2(0, -8 * 16) + randomOffset; // Высота 8 блоков над врагом
                 Projectile.NewProjectile(
                     Projectile.GetSource_FromThis(),
                     grenadePosition,
                     Vector2.Zero,
-                    ProjectileID.Grenade,
-                    50, // Урон гранат
+                    ProjectileID.BallofFire,
+                    100, // Урон фаерболов
+                    1f,
+                    player.whoAmI
+                );
+            }
+            // Спавним 10 звезд вокруг врага с рандомным отклонением
+            for (int i = 0; i < 10; i++)
+            {
+                Vector2 randomOffset = new Vector2(
+                    Main.rand.Next(-8 * 16, 8 * 16), // Отклонение по X (8 блоков)
+                    Main.rand.Next(-1 * 16, 1 * 16) // Отклонение по Y (1 блок)
+                );
+                Vector2 grenadePosition = target.Center + new Vector2(0, -20 * 16) + randomOffset; // Высота 20 блоков над врагом
+                Projectile.NewProjectile(
+                    Projectile.GetSource_FromThis(),
+                    grenadePosition,
+                    Vector2.Zero,
+                    ProjectileID.FallingStar,
+                    90, // Урон звезд
                     1f,
                     player.whoAmI
                 );
