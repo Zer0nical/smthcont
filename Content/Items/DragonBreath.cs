@@ -19,7 +19,7 @@ namespace smthcont.Content.Items
 			Item.Size = new Vector2(width, height);
 
 			Item.DamageType = DamageClass.Ranged;
-			Item.damage = 148;
+			Item.damage = 151;
 
 			Item.knockBack = 1.5f;
 			Item.noMelee = true;

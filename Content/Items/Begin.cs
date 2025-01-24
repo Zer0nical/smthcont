@@ -13,7 +13,7 @@ namespace smthcont.Content.Items
 		// The Display Name and Tooltip of this item can be edited in the 'Localization/en-US_Mods.smthcont.hjson' file.
 		public override void SetDefaults()
 		{
-			Item.damage = 36;
+			Item.damage = 23;
 			Item.DamageType = DamageClass.Melee;
 			Item.width = 60;
 			Item.height = 60;
@@ -25,30 +25,21 @@ namespace smthcont.Content.Items
 			Item.rare = ItemRarityID.Master;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
+			Item.crit = 25;
 			//test
 			Item.shoot = ModContent.ProjectileType<BeginProjectile>(); // Привязка к новому снаряду
             Item.shootSpeed = 0f; // Скорость снарядов (не используется)
 		}
-
-		// Крит.шанс ( override )
-        /*public override void ModifyWeaponCrit(Player player, ref int crit)
-        {
-            crit += 40; // Увеличиваем крит.шанс на 40%
-        }*/
-
-        // Дебаффы и вампиризм ( override )
-        /*public override void ModifyHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
-        {
-            // Дебаффы
-            target.AddBuff(BuffID.CursedInferno, 180); // Cursed на 3 секунды
-            target.AddBuff(BuffID.Bleeding, 300); // Bleeding на 5 секунд
-            target.AddBuff(BuffID.BrokenArmor, 300); // Broken Armor на 5 секунд
-
-            // Вампиризм
-            int healAmount = damage / 10; // Восстанавливаем 10% от нанесённого урона
-            player.statLife += healAmount; // Добавляем здоровье игроку
-            player.HealEffect(healAmount, true); // Показываем визуальный эффект исцеления
-        }*/
+		
+		public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
+		{
+			// Наложение дебаффов
+			target.AddBuff(BuffID.Bleeding, 300); // Кровотечение на 5 секунд
+			target.AddBuff(BuffID.Confused, 30); // Проклятый огонь на 5 секунд
+			// Вампиризм: 100% шанс исцелить игрока на 2 жизни
+			player.statLife += 2; // Восстановление 2 здоровья
+			player.HealEffect(2, true); // Визуальный эффект лечения
+		}
 
 		//связь со снарядом
 		public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockBack)

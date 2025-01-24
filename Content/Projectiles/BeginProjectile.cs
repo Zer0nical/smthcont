@@ -21,8 +21,8 @@ namespace smthcont.Content.Projectiles
             Projectile.hostile = false; // Не наносит урон игроку
             Projectile.DamageType = DamageClass.Melee; // Тип урона
             Projectile.penetrate = 2; // Количество проникновений (2 попадания)
-            Projectile.timeLeft = 140; // Время жизни снаряда (в кадрах)
-            Projectile.damage = 10; // Урон снаряда
+            Projectile.timeLeft = 100; // Время жизни снаряда (в кадрах)
+            Projectile.damage = 6; // Урон снаряда
             Projectile.light = 0.75f; // Освещение вокруг снаряда
             Projectile.ignoreWater = true; // Не замедляется в воде
             Projectile.tileCollide = true; // Снаряд сталкивается с блоками
@@ -31,25 +31,35 @@ namespace smthcont.Content.Projectiles
         public override void AI()
         {
             // Самонаводка на ближайшего врага
-            NPC target = FindClosestNPC(485f); // Радиус поиска - 485 пикселей
+            NPC target = FindClosestNPC(450f); // Радиус поиска - 450 пикселей
+            Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2;
             if (target != null)
             {
                 Vector2 direction = target.Center - Projectile.Center; // Направление к цели
                 direction.Normalize(); // Нормализация вектора (длина 1)
-                direction *= 11f; // Скорость снаряда (можно настроить)
-                Projectile.velocity = Vector2.Lerp(Projectile.velocity, direction, 0.25f); // Плавное изменение направления
+                direction *= 17f; // Скорость снаряда (можно настроить)
+                Projectile.velocity = Vector2.Lerp(Projectile.velocity, direction, 0.16f); // Плавное изменение направления
             }
 
             // Эффекты (пыль)
             Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.PurpleCrystalShard);
         }
-        /*public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damage, int hitDirection) 
-        //NPC target, NPC.HitInfo hit, int damageDone -working
-        //NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection -plz
-        //NPC target, NPC.HitInfo hit, int damageDone, ref int damage, ref float knockback, ref bool crit, ref int hitDirection 
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(BuffID.OnFire, 300); // 1 секунды = 60 кадров
-        }*/
+            // Наложение дебаффов на цель
+            target.AddBuff(BuffID.Bleeding, 180); // Кровотечение на 3 секунды (180 кадров)
+            target.AddBuff(BuffID.BrokenArmor, 180); // Проклятый огонь на 3 секунды (180 кадров)
+            target.AddBuff(BuffID.Ichor, 180);
+            // Вампиризм: восстановление 1 единицы здоровья игроку
+            Player player = Main.player[Projectile.owner];
+            Projectile.Kill();
+            if (Main.rand.NextFloat() <= 0.7f) // Шанс 70%
+            {
+                player.statLife += 1; // Увеличение здоровья игрока на 1
+                player.HealEffect(1, true); // Отображение визуального эффекта исцеления
+            }
+        }
+
 
         public override bool OnTileCollide(Vector2 oldVelocity)
         {
