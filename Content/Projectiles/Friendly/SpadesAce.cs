@@ -2,8 +2,8 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
-
-namespace smthcont.Content.Projectiles
+using System;
+namespace smthcont.Content.Projectiles.Friendly
 {
     public class SpadesAce : ModProjectile
     {
@@ -23,7 +23,7 @@ namespace smthcont.Content.Projectiles
             Projectile.rotation += 0.1f; // Вращение вокруг оси
         }
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
             if (Main.rand.NextFloat() <= 0.9f) // 90% шанс
                 target.AddBuff(BuffID.Poisoned, 900); // Отравление на 15 секунд
