@@ -20,10 +20,10 @@ namespace smthcont.Content.Projectiles
             Projectile.friendly = true; // Снаряд дружелюбный
             Projectile.hostile = false; // Не наносит урон игроку
             Projectile.DamageType = DamageClass.Melee; // Тип урона
-            Projectile.penetrate = 2; // Количество проникновений (2 попадания)
+            Projectile.penetrate = 3; // Количество проникновений (3 попадания)
             Projectile.timeLeft = 100; // Время жизни снаряда (в кадрах)
             Projectile.damage = 6; // Урон снаряда
-            Projectile.light = 0.75f; // Освещение вокруг снаряда
+            Projectile.light = 0.7f; // Освещение вокруг снаряда
             Projectile.ignoreWater = true; // Не замедляется в воде
             Projectile.tileCollide = true; // Снаряд сталкивается с блоками
         }
@@ -48,8 +48,8 @@ namespace smthcont.Content.Projectiles
         {
             // Наложение дебаффов на цель
             target.AddBuff(BuffID.Bleeding, 180); // Кровотечение на 3 секунды (180 кадров)
-            target.AddBuff(BuffID.BrokenArmor, 180); // Проклятый огонь на 3 секунды (180 кадров)
-            target.AddBuff(BuffID.Ichor, 180);
+            target.AddBuff(BuffID.BrokenArmor, 180); // Снижение защиты на 3 секунды (180 кадров)
+            target.AddBuff(BuffID.Ichor, 180); // Снижение ихор на 3 секунды (180 кадров)
             // Вампиризм: восстановление 1 единицы здоровья игроку
             Player player = Main.player[Projectile.owner];
             Projectile.Kill();
