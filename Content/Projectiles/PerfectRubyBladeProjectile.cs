@@ -9,6 +9,7 @@ namespace smthcont.Content.Projectiles
     {
         public override void SetStaticDefaults()
         {
+            DisplayName.SetDefault("Ruby Blade Projectile");
             ProjectileID.Sets.TrailCacheLength[Projectile.type] = 10; // Длина следа
             ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
         }
@@ -38,7 +39,7 @@ namespace smthcont.Content.Projectiles
             // Создание пыли
             if (Main.rand.NextBool(2)) // 50% шанс
             {
-                Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.PurpleCrystalShard);
+                Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Rainbow);
             }
         }
 
@@ -49,11 +50,10 @@ namespace smthcont.Content.Projectiles
             target.AddBuff(BuffID.CursedInferno, 180); // Проклятый огонь на 3 секунды
 
             // Вампиризм
-            Player player = Main.player[Projectile.owner];
-            if (Main.rand.NextFloat() <= 0.7f) // Шанс 70%
+            if (Main.rand.NextFloat() <= 0.7f) // 70% шанс
             {
-                player.statLife += 1; // Увеличение здоровья игрока на 1
-                player.HealEffect(1, true); // Отображение визуального эффекта исцеления
+                Projectile.ownerPlayer().statLife += 1; // Лечение игрока
+                Projectile.ownerPlayer().HealEffect(1, true); // Визуальный эффект лечения
             }
         }
     }
