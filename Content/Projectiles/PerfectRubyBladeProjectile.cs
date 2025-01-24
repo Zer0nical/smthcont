@@ -10,7 +10,7 @@ namespace smthcont.Content.Projectiles
         public override void SetStaticDefaults()
         {
             ProjectileID.Sets.TrailCacheLength[Projectile.type] = 10; // Длина следа
-            ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
+            ProjectileID.Sets.TrailingMode[Projectile.type] = 1;
         }
 
         public override void SetDefaults()
@@ -23,7 +23,7 @@ namespace smthcont.Content.Projectiles
             Projectile.penetrate = -1; // Бесконечное проникновение
             Projectile.timeLeft = 300; // Время жизни (5 секунд)
             Projectile.tileCollide = false; // Проходит сквозь блоки
-            Projectile.light = 1f; // Освещение
+            Projectile.light = 3f; // Освещение
             Projectile.ignoreWater = true;
         }
 
@@ -33,7 +33,7 @@ namespace smthcont.Content.Projectiles
             Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2;
 
             // Эффекты света
-            Lighting.AddLight(Projectile.Center, 0.5f, 0.1f, 0.6f); // Фиолетовый свет
+            Lighting.AddLight(Projectile.Center, 0.9f, 0.2f, 0.1f); // красный свет
 
             // Создание пыли
             if (Main.rand.NextBool(2)) // 50% шанс
@@ -46,14 +46,20 @@ namespace smthcont.Content.Projectiles
         {
             // Наложение дебаффов
             target.AddBuff(BuffID.Bleeding, 300); // Кровотечение на 5 секунд
-            target.AddBuff(BuffID.CursedInferno, 180); // Проклятый огонь на 3 секунды
+            target.AddBuff(BuffID.Confused, 300); // Конфузия на 5 секунд
+			target.AddBuff(BuffID.PotionSickness, 6000); // без лечения на 100 секунд
+			target.AddBuff(BuffID.Cursed, 180); // Без оружия на 3 секунды
+			target.AddBuff(BuffID.OnFire, 600); // Огонь на 10 секунд
+			target.AddBuff(BuffID.Slow, 300); // Замедление на 5 секунд
+			target.AddBuff(BuffID.ChaosState, 6000); // без тп на 100 секунд
+
 
             // Вампиризм
             Player player = Main.player[Projectile.owner];
-            if (Main.rand.NextFloat() <= 0.7f) // 70% шанс
+            if (Main.rand.NextFloat() <= 0.45f) // 45% шанс
             {
-                player.statLife += 1; // Увеличение здоровья игрока на 1
-                player.HealEffect(1, true); // Отображение визуального эффекта исцеления
+                player.statLife += 2; // Увеличение здоровья игрока на 2
+                player.HealEffect(2, true); // Отображение визуального эффекта исцеления
             }
         }
     }

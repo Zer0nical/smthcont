@@ -11,19 +11,19 @@ namespace smthcont.Content.Items.Weapons.Melee
     {
         public override void SetDefaults()
         {
-            Item.damage = 23;
+            Item.damage = 135;
             Item.DamageType = DamageClass.Melee;
             Item.width = 60;
             Item.height = 60;
-            Item.useTime = 30;
-            Item.useAnimation = 30;
+            Item.useTime = 12;
+            Item.useAnimation = 12;
             Item.useStyle = ItemUseStyleID.Swing;
-            Item.knockBack = 4;
-            Item.value = Item.buyPrice(gold: 8, silver: 65);
-            Item.rare = ItemRarityID.Lime;
+            Item.knockBack = 7;
+            Item.value = Item.buyPrice(gold: 12, silver: 35);
+            Item.rare = ItemRarityID.Yellow;
             Item.UseSound = SoundID.Item1;
             Item.autoReuse = true;
-            Item.crit = 25;
+            Item.crit = 50;
             Item.shoot = ModContent.ProjectileType<PerfectRubyBladeProjectile>();
             Item.shootSpeed = 0f;
         }
@@ -32,8 +32,12 @@ namespace smthcont.Content.Items.Weapons.Melee
         {
             // Наложение дебаффов
             target.AddBuff(BuffID.Bleeding, 300); // Кровотечение на 5 секунд
-            target.AddBuff(BuffID.Confused, 60); // Конфузия на 1 секунду
-            target.AddBuff(BuffID.CursedInferno, 180); // Проклятый огонь на 3 секунды
+            target.AddBuff(BuffID.Confused, 300); // Конфузия на 5 секунд
+			target.AddBuff(BuffID.PotionSickness, 6000); // без лечения на 100 секунд
+			target.AddBuff(BuffID.Cursed, 180); // Без оружия на 3 секунды
+			target.AddBuff(BuffID.OnFire, 600); // Огонь на 10 секунд
+			target.AddBuff(BuffID.Slow, 300); // Замедление на 5 секунд
+			target.AddBuff(BuffID.ChaosState, 6000); // без тп на 100 секунд
 
             // Вампиризм: 100% шанс исцелить игрока на 2 хп
             player.statLife += 2;
@@ -47,17 +51,17 @@ namespace smthcont.Content.Items.Weapons.Melee
             Vector2 direction = (targetPosition - player.Center).SafeNormalize(Vector2.Zero);
 
             // Спавн трёх снарядов
-            for (int i = -1; i <= 1; i++)
+            for (int i = -2; i <= 2; i++)
             {
                 // Угол для каждого снаряда
-                float angleOffset = MathHelper.ToRadians(65 * i); // Смещение на 65° вверх/вниз
+                float angleOffset = MathHelper.ToRadians(27 * i); // Смещение на 55° вверх/вниз
                 Vector2 rotatedDirection = direction.RotatedBy(angleOffset);
 
                 // Спавн снаряда
                 Projectile.NewProjectile(
                     source,
                     player.Center,
-                    rotatedDirection * 12f, // Скорость снаряда
+                    rotatedDirection * 25f, // Скорость снаряда
                     ModContent.ProjectileType<PerfectRubyBladeProjectile>(), // Новый снаряд
                     damage,
                     knockBack,
@@ -65,26 +69,18 @@ namespace smthcont.Content.Items.Weapons.Melee
                 );
             }
 
-            // Спавн дополнительных эффектов на месте курсора
-            Projectile.NewProjectile(
-                source,
-                Main.MouseWorld,
-                Vector2.Zero,
-                ProjectileID.RainbowCrystalExplosion, // Эффект радуги
-                0,
-                0,
-                player.whoAmI
-            );
-
-            Projectile.NewProjectile(
-                source,
-                Main.MouseWorld,
-                Vector2.Zero,
-                ProjectileID.HallowBossRainbowStreak, // Радужная streak (вражеская переделана на дружественную)
-                0,
-                0,
-                player.whoAmI
-            );
+			for (int i = 0; i <= 2; i++)
+            {
+                Projectile.NewProjectile(
+					source,
+					Main.MouseWorld,
+					Vector2.Zero,
+					ProjectileID.FairyQueenMagicItemShot, // Эффект радуги
+					0,
+					0,
+					player.whoAmI
+					);
+			}
 
             return false; // Предотвращает стандартный выстрел
         }
