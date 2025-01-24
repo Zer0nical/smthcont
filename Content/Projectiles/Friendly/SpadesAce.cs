@@ -35,6 +35,15 @@ namespace smthcont.Content.Projectiles.Friendly
 
             if (Main.rand.NextFloat() <= 0.5f) // 50% шанс
                 target.AddBuff(BuffID.Slow, 300); // Замедление на 5 секунд
+            Projectile.NewProjectile(
+                Projectile.GetSource_FromThis(),
+                target.Center,
+                Vector2.Zero, // Черная дыра неподвижна
+                ModContent.ProjectileType<BlackHole>(),
+                Projectile.damage / 2, // Урон черной дыры (половина от SpadesAce)
+                Projectile.knockBack,
+                Projectile.owner
+            );
         }
     }
 }
