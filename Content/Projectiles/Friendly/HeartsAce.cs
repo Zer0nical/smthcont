@@ -17,7 +17,7 @@ namespace smthcont.Content.Projectiles.Friendly
             Projectile.penetrate = 3; // Пронзает 3 врагов
             Projectile.tileCollide = true; // Исчезает при столкновении с блоками
             Projectile.light = 0.5f; // Освещает
-            Projectile.scale = 0.65f;
+            Projectile.scale = 0.58f;
         }
 
         public override void AI()
