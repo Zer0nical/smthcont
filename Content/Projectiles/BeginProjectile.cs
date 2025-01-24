@@ -15,8 +15,8 @@ namespace smthcont.Content.Projectiles
 
         public override void SetDefaults()
         {
-            Projectile.width = 14; // Ширина снаряда
-            Projectile.height = 14; // Высота снаряда
+            Projectile.width = 16; // Ширина снаряда
+            Projectile.height = 16; // Высота снаряда
             Projectile.friendly = true; // Снаряд дружелюбный
             Projectile.hostile = false; // Не наносит урон игроку
             Projectile.DamageType = DamageClass.Melee; // Тип урона
