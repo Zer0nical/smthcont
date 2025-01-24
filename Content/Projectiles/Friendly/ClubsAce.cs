@@ -9,13 +9,15 @@ namespace smthcont.Content.Projectiles.Friendly
     {
         public override void SetDefaults()
         {
-            Projectile.width = 16;
-            Projectile.height = 24;
+            Projectile.width = 8;
+            Projectile.height = 12;
             Projectile.friendly = true;
             //Projectile.magic = true;
+            Projectile.damage = 140;
             Projectile.penetrate = 3; // Пронзает 3 врагов
             Projectile.tileCollide = true; // Исчезает при столкновении с блоками
             Projectile.light = 0.5f; // Освещает
+            Projectile.scale = 0.65f;
         }
 
         public override void AI()
@@ -32,14 +34,26 @@ namespace smthcont.Content.Projectiles.Friendly
             player.Center = target.Center;
             target.Center = tempPosition;
 
-            // Дополнительный урон врагу
-            //target.StrikeNPC(100, 0f, 0); - not working
+            // Звук телепортации
+            //SoundEngine.PlaySound(SoundID.Item8, player.position);
 
-            // Спавним гранаты вокруг врага через 0.5 секунд
-            for (int i = 0; i < 6; i++)
+            // Спавним 14 гранат вокруг врага с рандомным отклонением
+            for (int i = 0; i < 14; i++)
             {
-                Vector2 grenadePosition = target.Center + new Vector2(0, -16 * (i + 1)); // Расположение сверху
-                Projectile.NewProjectile(Projectile.GetSource_FromThis(), grenadePosition, Vector2.Zero, ProjectileID.Grenade, 50, 1f, player.whoAmI);
+                Vector2 randomOffset = new Vector2(
+                    Main.rand.Next(-8 * 16, 8 * 16), // Отклонение по X (8 блоков)
+                    Main.rand.Next(-3 * 16, 3 * 16) // Отклонение по Y (3 блока)
+                );
+                Vector2 grenadePosition = target.Center + new Vector2(0, -7 * 16) + randomOffset; // Высота 7 блоков над врагом
+                Projectile.NewProjectile(
+                    Projectile.GetSource_FromThis(),
+                    grenadePosition,
+                    Vector2.Zero,
+                    ProjectileID.Grenade,
+                    50, // Урон гранат
+                    1f,
+                    player.whoAmI
+                );
             }
         }
     }

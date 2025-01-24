@@ -9,13 +9,15 @@ namespace smthcont.Content.Projectiles.Friendly
     {
         public override void SetDefaults()
         {
-            Projectile.width = 16;
-            Projectile.height = 24;
+            Projectile.width = 8;
+            Projectile.height = 12;
             Projectile.friendly = true;
             //Projectile.magic = true;
+            Projectile.damage = 140;
             Projectile.penetrate = 3; // Пронзает 3 врагов
             Projectile.tileCollide = true; // Исчезает при столкновении с блоками
             Projectile.light = 0.5f; // Освещает
+            Projectile.scale = 0.65f;
         }
 
         public override void AI()
@@ -34,6 +36,16 @@ namespace smthcont.Content.Projectiles.Friendly
             int[] buffs = { BuffID.Ironskin, BuffID.Endurance, BuffID.Rage };
             int randomBuff = Main.rand.Next(buffs.Length);
             player.AddBuff(buffs[randomBuff], 1200); // Бафф на 20 секунд
+
+            // Телепортируем врага случайным образом
+            Vector2 randomTeleportOffset = new Vector2(
+                Main.rand.Next(-10 * 16, 10 * 16), // Отклонение по X (до 10 блоков)
+                Main.rand.Next(-10 * 16, 10 * 16) // Отклонение по Y (до 10 блоков)
+            );
+            target.position += randomTeleportOffset;
+
+            // Звук телепортации для врага
+            //SoundEngine.PlaySound(SoundID.Item8, target.position);
         }
     }
 }

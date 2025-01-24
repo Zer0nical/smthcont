@@ -15,15 +15,15 @@ namespace smthcont.Content.Items.Weapons.Magic
             Item.DamageType = DamageClass.Magic;
             Item.width = 40;
             Item.height = 40;
-            Item.useTime = 30;
-            Item.useAnimation = 30;
+            Item.useTime = 20;
+            Item.useAnimation = 20;
             Item.useStyle = ItemUseStyleID.Swing;
-            Item.knockBack = 5;
+            Item.knockBack = 7;
             Item.value = Item.buyPrice(gold: 5);
             Item.rare = ItemRarityID.Pink;
-            Item.mana = 10;
+            Item.mana = 2;
             Item.shoot = ModContent.ProjectileType<HeartsAce>(); // По умолчанию
-            Item.shootSpeed = 12f;
+            Item.shootSpeed = 30f;
             Item.UseSound = SoundID.Item20;
             Item.autoReuse = true;
         }

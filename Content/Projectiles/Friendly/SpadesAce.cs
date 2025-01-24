@@ -9,13 +9,15 @@ namespace smthcont.Content.Projectiles.Friendly
     {
         public override void SetDefaults()
         {
-            Projectile.width = 16;
-            Projectile.height = 24;
+            Projectile.width = 8;
+            Projectile.height = 12;
             Projectile.friendly = true;
             //Projectile.magic = true;
+            Projectile.damage = 140;
             Projectile.penetrate = 3; // Пронзает 3 врагов
             Projectile.tileCollide = true; // Исчезает при столкновении с блоками
             Projectile.light = 0.5f; // Освещает
+            Projectile.scale = 0.65f;
         }
 
         public override void AI()
