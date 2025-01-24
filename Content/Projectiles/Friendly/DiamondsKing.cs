@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework;
 using System;
 namespace smthcont.Content.Projectiles.Friendly
 {
-    public class DiamondsAce : ModProjectile
+    public class DiamondsKing : ModProjectile
     {
         public override void SetDefaults()
         {
@@ -22,7 +22,7 @@ namespace smthcont.Content.Projectiles.Friendly
 
         public override void AI()
         {
-            Projectile.rotation += 0.1f; // Вращение вокруг оси
+            Projectile.rotation += 1.0f; // Вращение вокруг оси
         }
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)

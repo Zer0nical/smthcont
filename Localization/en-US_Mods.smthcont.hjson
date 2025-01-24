@@ -30,4 +30,8 @@ Projectiles: {
 	HeartsAce.DisplayName: Hearts Ace
 	SpadesAce.DisplayName: Spades Ace
 	BlackHole.DisplayName: Black Hole
+	ClubsKing.DisplayName: Clubs King
+	DiamondsKing.DisplayName: Diamonds King
+	HeartsKing.DisplayName: Hearts King
+	SpadesKing.DisplayName: Spades King
 }
