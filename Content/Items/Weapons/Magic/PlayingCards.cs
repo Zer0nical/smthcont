@@ -21,9 +21,9 @@ namespace smthcont.Content.Items.Weapons.Magic
             Item.knockBack = 7;
             Item.value = Item.buyPrice(gold: 5);
             Item.rare = ItemRarityID.Pink;
-            Item.mana = 2;
+            Item.mana = 6;
             Item.shoot = ModContent.ProjectileType<HeartsAce>(); // По умолчанию
-            Item.shootSpeed = 30f;
+            Item.shootSpeed = 26f;
             Item.UseSound = SoundID.Item20;
             Item.autoReuse = true;
         }
@@ -40,7 +40,11 @@ namespace smthcont.Content.Items.Weapons.Magic
                 ModContent.ProjectileType<HeartsAce>(),
                 ModContent.ProjectileType<SpadesAce>(),
                 ModContent.ProjectileType<DiamondsAce>(),
-                ModContent.ProjectileType<ClubsAce>()
+                ModContent.ProjectileType<ClubsAce>(),
+                ModContent.ProjectileType<HeartsKing>(),
+                ModContent.ProjectileType<SpadesKing>(),
+                ModContent.ProjectileType<DiamondsKing>(),
+                ModContent.ProjectileType<ClubsKing>()
             };
 
             for (int i = 0; i < 3; i++)

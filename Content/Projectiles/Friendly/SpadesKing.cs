@@ -13,7 +13,7 @@ namespace smthcont.Content.Projectiles.Friendly
             Projectile.height = 12;
             Projectile.friendly = true;
             //Projectile.magic = true;
-            Projectile.damage = 140;
+            Projectile.damage = 130;
             Projectile.penetrate = 3; // Пронзает 3 врагов
             Projectile.tileCollide = true; // Исчезает при столкновении с блоками
             Projectile.light = 0.5f; // Освещает
@@ -35,15 +35,6 @@ namespace smthcont.Content.Projectiles.Friendly
 
             if (Main.rand.NextFloat() <= 0.5f) // 50% шанс
                 target.AddBuff(BuffID.Slow, 300); // Замедление на 5 секунд
-            /*Projectile.NewProjectile(
-                Projectile.GetSource_FromThis(),
-                target.Center,
-                Vector2.Zero, // Черная дыра неподвижна
-                ModContent.ProjectileType<BlackHole>(),
-                Projectile.damage / 2, // Урон черной дыры (половина от SpadesAce)
-                Projectile.knockBack,
-                Projectile.owner
-            );*/ //blackhole spawn
         }
     }
 }

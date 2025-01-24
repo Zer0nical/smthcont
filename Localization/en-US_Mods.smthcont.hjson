@@ -17,9 +17,8 @@ Items: {
 	}
 
 	PlayingCards: {
-		Tooltip: "Im, so lucky-lucky, im, so lucky-lucky IM,
-		so love me love me, Im, so love me love me!"
 		DisplayName: Playing Cards
+		Tooltip: omg
 	}
 }
 
@@ -30,4 +29,5 @@ Projectiles: {
 	DiamondsAce.DisplayName: Diamonds Ace
 	HeartsAce.DisplayName: Hearts Ace
 	SpadesAce.DisplayName: Spades Ace
+	BlackHole.DisplayName: Black Hole
 }
