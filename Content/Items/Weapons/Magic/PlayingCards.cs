@@ -23,7 +23,7 @@ namespace smthcont.Content.Items.Weapons.Magic
             Item.rare = ItemRarityID.Pink;
             Item.mana = 10;
             Item.shoot = ModContent.ProjectileType<HeartsAce>(); // По умолчанию
-            Item.shootSpeed = 18f;
+            Item.shootSpeed = 24f;
             Item.UseSound = SoundID.Item20;
             Item.autoReuse = true;
         }

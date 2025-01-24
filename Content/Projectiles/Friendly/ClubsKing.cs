@@ -23,20 +23,21 @@ namespace smthcont.Content.Projectiles.Friendly
         public override void AI()
         {
             // Добавляем гравитацию
-            Projectile.velocity.Y += 0.8f; // Чем больше число, тем сильнее гравитация
+            Projectile.velocity.Y += 0.45f; // Чем больше число, тем сильнее гравитация
 
             // Ограничиваем максимальную скорость падения
             if (Projectile.velocity.Y > 10f) 
             {
                 Projectile.velocity.Y = 10f; // Максимальная скорость падения
             }
-            Projectile.rotation += 0.68f; // Вращение вокруг оси
+            Projectile.rotation += 0.3f; // Вращение вокруг оси
         }
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             Player player = Main.player[Projectile.owner];
-            player.AddBuff(BuffID.ShadowDodge, 30); // 0.5 секунд додж
+            player.AddBuff(BuffID.ShadowDodge, 90); // 1.5 секундs додж
+            player.AddBuff(BuffID.BrainOfConfusionBuff, 90);
             // Меняем местами игрока и врага
             Vector2 tempPosition = player.Center;
             player.Center = target.Center;
@@ -45,7 +46,7 @@ namespace smthcont.Content.Projectiles.Friendly
             // Звук телепортации
             //SoundEngine.PlaySound(SoundID.Item8, player.position);
 
-            // Спавним 10 кос вокруг врага с рандомным отклонением
+            // Спавним 5 туч вокруг врага с рандомным отклонением
             for (int i = 0; i < 10; i++)
             {
                 Vector2 randomOffset = new Vector2(
@@ -57,8 +58,8 @@ namespace smthcont.Content.Projectiles.Friendly
                     Projectile.GetSource_FromThis(),
                     grenadePosition,
                     Vector2.Zero,
-                    ProjectileID.DemonScythe,
-                    80, // Урон кос
+                    ProjectileID.RainCloudRaining,
+                    90, // Урон туч
                     1f,
                     player.whoAmI
                 );
