@@ -23,14 +23,14 @@ namespace smthcont.Content.Projectiles.Friendly
         public override void AI()
         {
             // Добавляем гравитацию
-            Projectile.velocity.Y += 0.2f; // Чем больше число, тем сильнее гравитация
+            Projectile.velocity.Y += 0.8f; // Чем больше число, тем сильнее гравитация
 
             // Ограничиваем максимальную скорость падения
             if (Projectile.velocity.Y > 10f) 
             {
                 Projectile.velocity.Y = 10f; // Максимальная скорость падения
             }
-            Projectile.rotation += 1.0f; // Вращение вокруг оси
+            Projectile.rotation += 0.68f; // Вращение вокруг оси
         }
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
