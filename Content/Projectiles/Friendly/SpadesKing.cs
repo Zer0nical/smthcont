@@ -36,61 +36,61 @@ namespace smthcont.Content.Projectiles.Friendly
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             if (Main.rand.NextFloat() <= 1.0f) 
-                target.AddBuff(BuffID.Poisoned, 960);
+                target.AddBuff(BuffID.Poisoned,  600);
 
             if (Main.rand.NextFloat() <= 0.95f) 
-                target.AddBuff(BuffID.OnFire, 960);
+                target.AddBuff(BuffID.OnFire,  600);
                 
             if (Main.rand.NextFloat() <= 1.0f) 
-                target.AddBuff(BuffID.Bleeding, 960);
+                target.AddBuff(BuffID.Bleeding,  600);
 
             if (Main.rand.NextFloat() <= 0.35f) 
-                target.AddBuff(BuffID.Confused, 960); 
+                target.AddBuff(BuffID.Confused,  600); 
 
             if (Main.rand.NextFloat() <= 0.95f) 
-                target.AddBuff(BuffID.Slow, 960);  
+                target.AddBuff(BuffID.Slow,  600);  
 
             if (Main.rand.NextFloat() <= 1.0f)   
-                target.AddBuff(BuffID.Weak, 960);  
+                target.AddBuff(BuffID.Weak,  600);  
 
             if (Main.rand.NextFloat() <= 0.85f)   
-                target.AddBuff(BuffID.BrokenArmor, 960);  
+                target.AddBuff(BuffID.BrokenArmor,  600);  
 
             if (Main.rand.NextFloat() <= 0.8f)   
-                target.AddBuff(BuffID.CursedInferno, 960);  
+                target.AddBuff(BuffID.CursedInferno,  600);  
 
             if (Main.rand.NextFloat() <= 0.85f)   
-                target.AddBuff(BuffID.Frostburn, 960);  
+                target.AddBuff(BuffID.Frostburn,  600);  
 
             if (Main.rand.NextFloat() <= 0.85f)   
-                target.AddBuff(BuffID.Burning, 960);  
+                target.AddBuff(BuffID.Burning,  600);  
 
             if (Main.rand.NextFloat() <= 0.8f)   
-                target.AddBuff(BuffID.Ichor, 960); 
+                target.AddBuff(BuffID.Ichor,  600); 
 
             if (Main.rand.NextFloat() <= 0.8f)   
-                target.AddBuff(BuffID.Venom, 960);  
+                target.AddBuff(BuffID.Venom,  600);  
 
             if (Main.rand.NextFloat() <= 0.9f)   
-                target.AddBuff(BuffID.Midas, 960);  
+                target.AddBuff(BuffID.Midas,  600);  
 
             if (Main.rand.NextFloat() <= 0.65f)   
-                target.AddBuff(BuffID.Electrified, 960); 
+                target.AddBuff(BuffID.Electrified,  600); 
 
             if (Main.rand.NextFloat() <= 0.4f)   
-                target.AddBuff(BuffID.Webbed, 960);  
+                target.AddBuff(BuffID.Webbed,  600);  
 
             if (Main.rand.NextFloat() <= 0.75f)   
-                target.AddBuff(BuffID.ShadowFlame, 960);  
+                target.AddBuff(BuffID.ShadowFlame,  600);  
 
             if (Main.rand.NextFloat() <= 0.32f)   
-                target.AddBuff(BuffID.VortexDebuff, 960);  
+                target.AddBuff(BuffID.VortexDebuff,  600);  
 
             if (Main.rand.NextFloat() <= 0.4f)   
-                target.AddBuff(BuffID.WindPushed, 960);  
+                target.AddBuff(BuffID.WindPushed,  600);  
 
             if (Main.rand.NextFloat() <= 0.25f)   
-                target.AddBuff(BuffID.BloodButcherer, 960);  
+                target.AddBuff(BuffID.BloodButcherer,  600);  
         }
     }
 }

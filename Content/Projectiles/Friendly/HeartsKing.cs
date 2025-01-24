@@ -40,14 +40,14 @@ namespace smthcont.Content.Projectiles.Friendly
             {
                 player.statLife += 18; // Лечение
                 player.HealEffect(18);
-                player.AddBuff(BuffID.Regeneration, 900); // 15 секунд 
-                player.AddBuff(BuffID.ManaRegeneration, 900); 
-                player.AddBuff(BuffID.Honey, 900);
-                player.AddBuff(BuffID.RapidHealing, 900); 
-                player.AddBuff(BuffID.Campfire, 900); 
-                player.AddBuff(BuffID.HeartLamp, 900); 
-                player.AddBuff(BuffID.Lifeforce, 900); 
-                player.AddBuff(BuffID.NebulaUpLife2, 900); 
+                player.AddBuff(BuffID.Regeneration, 400); // 15 секунд 
+                player.AddBuff(BuffID.ManaRegeneration, 400); 
+                player.AddBuff(BuffID.Honey, 400);
+                player.AddBuff(BuffID.RapidHealing, 400); 
+                player.AddBuff(BuffID.Campfire, 400); 
+                player.AddBuff(BuffID.HeartLamp, 400); 
+                player.AddBuff(BuffID.Lifeforce, 400); 
+                player.AddBuff(BuffID.NebulaUpLife2, 400); 
             }
         }
     }
