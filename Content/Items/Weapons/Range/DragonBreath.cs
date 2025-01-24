@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
-using smthcont.Content.Projectiles;
+using smthcont.Content.Projectiles.Friendly;
 using System;
 
 namespace smthcont.Content.Items.Weapons.Range

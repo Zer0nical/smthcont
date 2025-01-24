@@ -12,7 +12,7 @@ namespace smthcont.Content.Projectiles.Friendly
             Projectile.width = 16;
             Projectile.height = 24;
             Projectile.friendly = true;
-            Projectile.magic = true;
+            //Projectile.magic = true;
             Projectile.penetrate = 3; // Пронзает 3 врагов
             Projectile.tileCollide = true; // Исчезает при столкновении с блоками
             Projectile.light = 0.5f; // Освещает
@@ -33,7 +33,7 @@ namespace smthcont.Content.Projectiles.Friendly
             target.Center = tempPosition;
 
             // Дополнительный урон врагу
-            target.StrikeNPC(100, 0f, 0);
+            //target.StrikeNPC(100, 0f, 0); - not working
 
             // Спавним гранаты вокруг врага через 0.5 секунд
             for (int i = 0; i < 6; i++)
