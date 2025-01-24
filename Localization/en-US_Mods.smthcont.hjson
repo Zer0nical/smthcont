@@ -20,6 +20,11 @@ Items: {
 		DisplayName: Playing Cards
 		Tooltip: So lucky...
 	}
+
+	BlackHoleBook: {
+		DisplayName: Black Hole Book
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
