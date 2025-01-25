@@ -4,12 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Terraria.ModLoader;
-
 namespace smthcont
 {
-	// Please read https://github.com/tModLoader/tModLoader/wiki/Basic-tModLoader-Modding-Guide#mod-skeleton-contents for more information about the various files in a mod.
-	public class smthcont : Mod
-	{
+    public class smthcont : Mod
+    {
+        public override void Load()
+        {
+            // Загрузка мода
+        }
 
-	}
+        public override void Unload()
+        {
+            // Выгрузка мода
+        }
+    }
 }
