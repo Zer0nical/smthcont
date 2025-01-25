@@ -4,7 +4,7 @@ using Terraria;
 using Microsoft.Xna.Framework;
 
 namespace Consolaria.Content.NPCs.Bosses {
-    public abstract class ConsolariaModBoss : ModNPC {
+    public abstract class smthcontModBoss : ModNPC {
         protected short FrameWidth {
             get; set;
         }

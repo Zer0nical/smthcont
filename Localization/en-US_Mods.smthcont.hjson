@@ -40,3 +40,5 @@ Projectiles: {
 	HeartsKing.DisplayName: Hearts King
 	SpadesKing.DisplayName: Spades King
 }
+
+NPCs.Hooligan.DisplayName: Hooligan
