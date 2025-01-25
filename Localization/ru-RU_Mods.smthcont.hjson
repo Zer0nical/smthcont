@@ -25,6 +25,11 @@ Items: {
 		DisplayName: Заклятие черной дыры
 		Tooltip: ""
 	}
+
+	ScytheOfAnnihilation: {
+		// DisplayName: Scythe Of Annihilation
+		// Tooltip: ""
+	}
 }
 
 Projectiles: {
@@ -39,6 +44,7 @@ Projectiles: {
 	DiamondsKing.DisplayName: Diamonds King
 	HeartsKing.DisplayName: Hearts King
 	SpadesKing.DisplayName: Spades King
+	// ScytheOfAnnihilationProjectile.DisplayName: Scythe Of Annihilation Projectile
 }
 
 NPCs.Hooligan.DisplayName: Шпана

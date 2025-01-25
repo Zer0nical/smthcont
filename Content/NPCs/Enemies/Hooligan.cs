@@ -3,7 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using System;
-using smthcont.Content.Events;
+//using smthcont.Content.Events;
 namespace smthcont.Content.NPCs.Enemies
 {
     public class Hooligan : ModNPC
@@ -109,7 +109,7 @@ namespace smthcont.Content.NPCs.Enemies
         {
             int dropAmount = Main.rand.Next(3, 11); // Выпадает 3-10 блоков земли
             Item.NewItem(NPC.GetSource_Death(), NPC.getRect(), ItemID.DirtBlock, dropAmount);
-            GopStopEvent.OnHooliganKilled();
+            //GopStopEvent.OnHooliganKilled();
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)

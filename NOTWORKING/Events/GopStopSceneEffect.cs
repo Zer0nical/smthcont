@@ -1,4 +1,4 @@
-using Terraria;
+/*using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
@@ -19,4 +19,4 @@ namespace ModName.Content.Events
 
         public override int Music => MusicLoader.GetMusicSlot(Mod, "Sounds/Music/Gop");
     }
-}
+}*/
