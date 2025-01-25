@@ -1,0 +1,44 @@
+# This file will automatically update with entries for new content after a build and reload.
+
+Items: {
+	Begin: {
+		DisplayName: Проклятый рубиновый клинок
+		Tooltip: Weapons forged using cursed and holy energy by the life force of worthy beings
+	}
+
+	DragonBreath: {
+		DisplayName: Мощь Феникса
+		Tooltip: Everything will be burned to the ground!
+	}
+
+	PerfectRubyBlade: {
+		DisplayName: Совершенный рубиновый клинок
+		Tooltip: The purest ruby weapon in the world.
+	}
+
+	PlayingCards: {
+		DisplayName: Игральные карты
+		Tooltip: So lucky...
+	}
+
+	BlackHoleBook: {
+		DisplayName: Заклятие черной дыры
+		Tooltip: ""
+	}
+}
+
+Projectiles: {
+	BeginProjectile.DisplayName: Ruby Projectile
+	PerfectRubyBladeProjectile.DisplayName: Perfect Ruby Blade Projectile
+	ClubsAce.DisplayName: Clubs Ace
+	DiamondsAce.DisplayName: Diamonds Ace
+	HeartsAce.DisplayName: Hearts Ace
+	SpadesAce.DisplayName: Spades Ace
+	BlackHole.DisplayName: Black Hole
+	ClubsKing.DisplayName: Clubs King
+	DiamondsKing.DisplayName: Diamonds King
+	HeartsKing.DisplayName: Hearts King
+	SpadesKing.DisplayName: Spades King
+}
+
+NPCs.Hooligan.DisplayName: Шпана
